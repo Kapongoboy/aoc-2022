@@ -28,28 +28,28 @@ for line in data:
 
 # pprint(file_tree)
 
-root = file_tree["/"]
-branches = []
-count = 0
-for item in root:
-    if type(root[item]) == dict:
-        branches.append(root[item])
-    else:
-        count += root[item]
-print(f"sum: {count}")
-print(branches)
-print("\n")
+root = [file_tree["/"]]
+# branches = []
+# count = 0
+# for item in root:
+#     if type(root[item]) == dict:
+#         branches.append(root[item])
+#     else:
+#         count += root[item]
+# print(f"sum: {count}")
+# print(branches)
+# print("\n")
 
 def sum_files(directory, sum_list, count, branch):
-    print(f"sum list: {sum_list}")
-    print(f"directories: {directory}")
+    pprint(f"sum list: {sum_list}")
+    pprint(f"directories: {directory}")
     for item in directory:
         for i in item:
             if type(item[i]) == dict:
                 branch.append(item[i])
             else:
                 count += item[i]
-        print(f"sum: {sum}")
+        print(f"sum: {count}")
         if count <= 100000:
             sum_list.append(count)
             count = 0
@@ -60,7 +60,7 @@ def sum_files(directory, sum_list, count, branch):
         print(sum(sum_list))
         return 0
 
-cheese = sum_files(branches, [], 0, [])
+cheese = sum_files(root, [], 0, [])
 # print(sum_files(branches, [], 0, []))
 # sum = 0
 # new_branch = []
