@@ -26,7 +26,7 @@ for line in data:
         except ValueError:
             cwd[part[1]] = {}
 
-# pprint(file_tree)
+pprint(file_tree)
 
 root = [file_tree["/"]]
 # branches = []
